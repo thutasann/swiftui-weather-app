@@ -17,54 +17,71 @@ enum BottomSheetPosition: CGFloat, CaseIterable{
 struct HomeView: View {
     
     @State var bottomSheetPosition: BottomSheetPosition = .middle
+    // To Get the BottomSheet Raw Value
+    @State var bottomSheetTranslation: CGFloat = BottomSheetPosition.middle.rawValue
+    
+    // Computed Property for animation
+    var bottomSheetTranslationProrated: CGFloat{
+        (bottomSheetTranslation - BottomSheetPosition.middle.rawValue) /
+        (BottomSheetPosition.top.rawValue - BottomSheetPosition.middle.rawValue)
+    }
+    
     
     var body: some View {
         NavigationView {
-            ZStack{
+            GeometryReader{ geometry in
                 
-                // MARK: Background Color
-                Color.background
-                    .ignoresSafeArea()
+                let screenHeight = geometry.size.height + geometry.safeAreaInsets.top + geometry.safeAreaInsets.bottom // <-- Screen Height
                 
-                // MARK: Background Image
-                Image("Background")
-                    .resizable()
-                    .ignoresSafeArea()
-                
-                // MARK: House Image
-                Image("House")
-                    .frame(maxHeight: .infinity, alignment: .top)
-                    .padding(.top, 257)
-                
-                // MARK: Hero Texts
-                VStack (spacing: -10){
-                    Text("Montreal")
-                        .font(.largeTitle)
+                ZStack{
                     
-                    VStack{
-                                        
-                        Text(attributedString)
+                    // MARK: Background Color
+                    Color.background
+                        .ignoresSafeArea()
+                    
+                    // MARK: Background Image
+                    Image("Background")
+                        .resizable()
+                        .ignoresSafeArea()
+                    
+                    // MARK: House Image
+                    Image("House")
+                        .frame(maxHeight: .infinity, alignment: .top)
+                        .padding(.top, 257)
+                    
+                    // MARK: Hero Texts
+                    VStack (spacing: -10){
+                        Text("Montreal")
+                            .font(.largeTitle)
                         
-                        Text("H:24º   L:18º")
-                            .font(.title3.weight(.semibold))
+                        VStack{
+                                            
+                            Text(attributedString)
+                            
+                            Text("H:24º   L:18º")
+                                .font(.title3.weight(.semibold))
+                        }
+                        
+                        Spacer()
                     }
+                    .padding(.top, 51)
                     
-                    Spacer()
-                }
-                .padding(.top, 51)
-                
-                // MARK: Bottom Sheet
-                BottomSheetView(position: $bottomSheetPosition) {
-                    //Text(bottomSheetPosition.rawValue.formatted())
-                } content: {
-                    ForecastView()
-                }
+                    // MARK: - BOTTOM SHEET PACKAGE
+                    BottomSheetView(position: $bottomSheetPosition) {
+                        Text(bottomSheetTranslationProrated.formatted())
+                    } content: {
+                        ForecastView()
+                    }
+                    .onBottomSheetDrag { translation in
+                        bottomSheetTranslation = translation / screenHeight
+                    }
 
-                
-                // MARK: TabBar
-                TabBar(action: {
-                    bottomSheetPosition = .top
-                })
+                    
+                    // MARK: TabBar
+                    TabBar(action: {
+                        bottomSheetPosition = .top
+                    })
+                }
             }
             .navigationBarHidden(true)
         }
