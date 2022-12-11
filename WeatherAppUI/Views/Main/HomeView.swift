@@ -58,7 +58,7 @@ struct HomeView: View {
                                             
                             Text(attributedString)
                             
-                            Text("H:24º   L:18º")
+                            Text("H:24º   L:38º")
                                 .font(.title3.weight(.semibold))
                         }
                         
