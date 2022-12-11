@@ -13,6 +13,7 @@
 		6BDE0A9A294590CD00D96FFB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BDE0A99294590CD00D96FFB /* Preview Assets.xcassets */; };
 		6BDE0AA82945A2C300D96FFB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDE0AA72945A2C300D96FFB /* Extensions.swift */; };
 		6BDE0AAA2945A41900D96FFB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDE0AA92945A41900D96FFB /* HomeView.swift */; };
+		6BDE0AAC2945AD8800D96FFB /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDE0AAB2945AD8700D96FFB /* TabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		6BDE0A99294590CD00D96FFB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6BDE0AA72945A2C300D96FFB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6BDE0AA92945A41900D96FFB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		6BDE0AAB2945AD8700D96FFB /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		6BDE0AA42945A13300D96FFB /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				6BDE0AAB2945AD8700D96FFB /* TabBar.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				6BDE0AAA2945A41900D96FFB /* HomeView.swift in Sources */,
 				6BDE0AA82945A2C300D96FFB /* Extensions.swift in Sources */,
 				6BDE0A93294590CC00D96FFB /* WeatherAppUIApp.swift in Sources */,
+				6BDE0AAC2945AD8800D96FFB /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
