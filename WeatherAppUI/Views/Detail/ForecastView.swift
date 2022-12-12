@@ -37,6 +37,10 @@ struct ForecastView: View {
                     .padding(.vertical, 20)
                 }
                 .padding(.horizontal, 20)
+                
+                // MARK: Forecast Widgets
+                Image("Forecast Widgets")
+                    .opacity(bottomSheetTranslationProrated)
             }
         }
         .backgroundBlur(radius: 25, opaque: true)
