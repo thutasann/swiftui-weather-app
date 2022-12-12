@@ -8,11 +8,25 @@
 import SwiftUI
 
 struct WeatherView: View {
+    
     var body: some View {
         ZStack{
             // MARK: Background
             Color.background
                 .ignoresSafeArea()
+            
+            // MARK: Weather Widgets
+            ScrollView(showsIndicators: false) {
+                VStack (spacing: 20){
+                    ForEach(Forecast.cities) { forecast in
+                        WeatherWidget(forecasat: forecast)
+                    }
+                }
+            }
+            .safeAreaInset(edge: .top) {
+                EmptyView()
+                    .frame(height: 110)
+            }
         }
         .overlay{
             // MARRK: Custom Navigation Bar
@@ -25,5 +39,6 @@ struct WeatherView: View {
 struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
         WeatherView()
+            .preferredColorScheme(.dark)
     }
 }

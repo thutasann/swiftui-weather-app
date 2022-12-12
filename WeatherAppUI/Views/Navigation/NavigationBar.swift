@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct NavigationBar: View {
+    
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         VStack (spacing: 8){
             HStack{
                 // MARK: Back Button
                 Button{
-                    
+                    dismiss()
                 } label: {
 
                     HStack (spacing: 5){
