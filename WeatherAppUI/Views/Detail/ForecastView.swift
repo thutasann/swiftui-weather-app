@@ -15,7 +15,7 @@ struct ForecastView: View {
     var body: some View {
         ScrollView{
             VStack(spacing: 20){
-                // MARK: Segmented Control
+                // MARK: SEGMENTED CONTROLS
                 SegmentedControl(selection: $selection)
             }
         }

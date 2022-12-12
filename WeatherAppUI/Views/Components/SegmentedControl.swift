@@ -15,6 +15,7 @@ struct SegmentedControl: View {
         VStack (spacing: 5){
             // MARK: Segmented Buttons
             HStack{
+                
                 Button{
                     withAnimation(.easeInOut(duration: 0.5)){
                         selection = 0
