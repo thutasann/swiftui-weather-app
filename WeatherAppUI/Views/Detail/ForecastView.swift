@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ForecastView: View {
+    
+    var bottomSheetTranslationProrated : CGFloat = 1
+    
     var body: some View {
         ScrollView{
             
@@ -15,7 +18,8 @@ struct ForecastView: View {
         .backgroundBlur(radius: 25, opaque: true)
         .background(Color.bottomSheetBackground)
         .clipShape(RoundedRectangle(cornerRadius: 44))
-        .innerShadow( // INNER SHADOW EXTENSION
+        // INNER SHADOW EXTENSION
+        .innerShadow(
             shape: RoundedRectangle(cornerRadius: 44),
             color: Color.bottomSheetBorderMiddle,
             lineWidth: 1,
@@ -23,7 +27,7 @@ struct ForecastView: View {
             offsetY: 1,
             blur: 0,
             blendMode: .overlay,
-            opacity: 1
+            opacity: 1 - bottomSheetTranslationProrated
         )
         .overlay{
             // MARK: BottomSheet Separator
