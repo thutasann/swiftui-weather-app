@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NavigationBar: View {
     
+    @Binding var searchText: String
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -28,6 +29,7 @@ struct NavigationBar: View {
                             .foregroundColor(.primary)
                     }
                     .frame(height: 52)
+                    
                 }
                 
                 Spacer()
@@ -38,6 +40,25 @@ struct NavigationBar: View {
                     .frame(width: 44, height: 44, alignment: .trailing )
             }
             .frame(height: 52)
+            
+            // MARK: Search bar
+            HStack (spacing: 2){
+                Image(systemName: "magnifyingglass")
+                TextField("Search for a city or airport", text: $searchText)
+            }
+            .foregroundColor(.secondary)
+            .padding(.horizontal, 6)
+            .padding(.vertical, 7)
+            .frame(height: 36, alignment: .trailing)
+            .background(Color.bottomSheetBackground, in: RoundedRectangle(cornerRadius: 10))
+            .innerShadow(
+                shape: RoundedRectangle(cornerRadius: 10),
+                color: Color.black.opacity(0.25),
+                lineWidth: 2,
+                offsetX: 0,
+                offsetY: 2,
+                blur: 2
+            )
         }
         .frame(height: 106, alignment: .top)
         .padding(.horizontal, 16)
@@ -51,6 +72,6 @@ struct NavigationBar: View {
 
 struct NavigationBar_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationBar()
+        NavigationBar(searchText: .constant(""))
     }
 }
