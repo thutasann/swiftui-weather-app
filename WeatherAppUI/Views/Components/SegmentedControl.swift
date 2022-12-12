@@ -31,7 +31,7 @@ struct SegmentedControl: View {
                         selection = 1
                     }
                 } label: {
-                    Text("Weak ly Forecast")
+                    Text("Weekly Forecast")
                 }
                 .frame(minWidth: 0, maxWidth: .infinity)
             }

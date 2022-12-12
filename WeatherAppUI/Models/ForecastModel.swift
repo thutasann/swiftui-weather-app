@@ -33,7 +33,7 @@ struct Forecast: Identifiable{
     var low: Int
     var location: String
     
-    var icon: String{
+    var icon: String {
         switch weather {
         case .clear:
             return "Moon"
@@ -48,7 +48,7 @@ struct Forecast: Identifiable{
         case .tornado:
             return "Tornado"
         case .windy:
-            return "Moon cloud fasft wind"
+            return "Moon cloud fast wind"
         }
     }
 }
